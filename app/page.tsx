@@ -10,20 +10,44 @@ export default function Home() {
           <div className="absolute -bottom-8 left-1/2 w-72 h-72 bg-pink-300 dark:bg-pink-500 rounded-full mix-blend-multiply filter blur-xl animate-blob" style={{animationDelay: '4s'}}></div>
         </div>
         
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl md:text-7xl font-extrabold mb-6 animate-fade-in-up text-white drop-shadow-2xl">
-            Welcome to My Makati Journey
-          </h1>
-          <p className="text-xl md:text-2xl mb-10 font-light animate-fade-in-up text-white dark:text-gray-200" style={{animationDelay: '0.2s'}}>
-            Exploring the vibrant life and culture of Makati City, Philippines 🇵🇭
-          </p>
-          <a
-            href="/gallery"
-            className="inline-block bg-white dark:bg-gradient-to-r dark:from-blue-500 dark:to-purple-600 text-purple-600 dark:text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-gray-100 dark:hover:from-blue-600 dark:hover:to-purple-700 hover:scale-105 transition-all duration-300 shadow-2xl animate-fade-in-up"
-            style={{animationDelay: '0.4s'}}
-          >
-            View My Gallery ✨
-          </a>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            {/* Text Content */}
+            <div className="text-center md:text-left">
+              <h1 className="text-5xl md:text-7xl font-extrabold mb-6 animate-fade-in-up text-white drop-shadow-2xl">
+                Welcome to My Makati Journey
+              </h1>
+              <p className="text-xl md:text-2xl mb-10 font-light animate-fade-in-up text-white dark:text-gray-200" style={{animationDelay: '0.2s'}}>
+                Exploring the vibrant life and culture of Makati City, Philippines 🇵🇭
+              </p>
+              <a
+                href="/gallery"
+                className="inline-block bg-white dark:bg-gradient-to-r dark:from-blue-500 dark:to-purple-600 text-purple-600 dark:text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-gray-100 dark:hover:from-blue-600 dark:hover:to-purple-700 hover:scale-105 transition-all duration-300 shadow-2xl animate-fade-in-up"
+                style={{animationDelay: '0.4s'}}
+              >
+                View My Gallery ✨
+              </a>
+            </div>
+
+            {/* Group Photo */}
+            <div className="flex justify-center md:justify-end animate-fade-in-up" style={{animationDelay: '0.6s'}}>
+              <div className="relative group">
+                {/* Glowing border effect */}
+                <div className="absolute -inset-1.5 bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 rounded-3xl blur-lg opacity-75 group-hover:opacity-100 transition duration-500 animate-gradient-xy"></div>
+                
+                {/* Image container */}
+                <div className="relative bg-white dark:bg-slate-800 rounded-3xl p-2 shadow-2xl">
+                  <img 
+                    src="/group-photo.jpg" 
+                    alt="Our Group in Makati" 
+                    className="relative rounded-2xl w-full max-w-2xl h-auto object-cover shadow-lg group-hover:scale-[1.02] transition-transform duration-300"
+                  />
+                  {/* Overlay gradient on hover */}
+                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-purple-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
