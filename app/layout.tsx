@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Navigation from "./components/Navigation";
-import Footer from "./components/Footer";
+import LayoutWrapper from "./components/LayoutWrapper";
 
 export const metadata: Metadata = {
   title: "Makati Adventures - My Travel Journey",
@@ -16,9 +15,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="flex flex-col min-h-screen">
-        <Navigation />
-        <main className="flex-grow">{children}</main>
-        <Footer />
+        <LayoutWrapper>{children}</LayoutWrapper>
       </body>
     </html>
   );

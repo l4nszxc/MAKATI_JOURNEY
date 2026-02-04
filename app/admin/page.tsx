@@ -8,6 +8,8 @@ export default function AdminPage() {
   const router = useRouter();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [showLogoutModal, setShowLogoutModal] = useState(false);
+  const [adminUsername, setAdminUsername] = useState('Admin');
 
   useEffect(() => {
     // Check if user is logged in
@@ -16,6 +18,7 @@ export default function AdminPage() {
       router.push('/');
     } else {
       setIsAuthenticated(true);
+      setAdminUsername(localStorage.getItem('adminUsername') || 'Admin');
     }
     setIsLoading(false);
   }, [router]);
@@ -52,7 +55,7 @@ export default function AdminPage() {
               </div>
               <div>
                 <h1 className="text-2xl font-bold text-white">Admin Dashboard</h1>
-                <p className="text-gray-400 text-sm">Welcome back, {localStorage.getItem('adminUsername') || 'Admin'}</p>
+                <p className="text-gray-400 text-sm">Welcome back, {adminUsername}</p>
               </div>
             </div>
             <div className="flex items-center gap-4">
@@ -66,7 +69,7 @@ export default function AdminPage() {
                 Back to Site
               </Link>
               <button
-                onClick={handleLogout}
+                onClick={() => setShowLogoutModal(true)}
                 className="px-4 py-2 bg-red-500/20 text-red-400 rounded-lg hover:bg-red-500/30 transition-colors flex items-center gap-2 border border-red-500/30"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -78,6 +81,46 @@ export default function AdminPage() {
           </div>
         </div>
       </header>
+
+      {/* Logout Confirmation Modal */}
+      {showLogoutModal && (
+        <>
+          <div 
+            className="fixed inset-0 bg-black/70 backdrop-blur-sm z-[9999]" 
+            onClick={() => setShowLogoutModal(false)}
+          ></div>
+          <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[10000] w-full max-w-sm px-4">
+            <div 
+              className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl shadow-2xl p-6 border-2 border-slate-700"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="text-center">
+                <div className="mx-auto w-16 h-16 bg-red-500/20 rounded-full flex items-center justify-center mb-4">
+                  <svg className="w-8 h-8 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-white mb-2">Confirm Logout</h3>
+                <p className="text-gray-400 mb-6">Are you sure you want to logout from the admin panel?</p>
+                <div className="flex gap-3">
+                  <button
+                    onClick={() => setShowLogoutModal(false)}
+                    className="flex-1 px-4 py-3 bg-slate-700 text-white rounded-lg hover:bg-slate-600 transition-colors font-semibold"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    onClick={handleLogout}
+                    className="flex-1 px-4 py-3 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors font-semibold"
+                  >
+                    Logout
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </>
+      )}
 
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
