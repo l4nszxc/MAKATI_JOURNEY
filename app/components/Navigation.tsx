@@ -137,15 +137,15 @@ export default function Navigation() {
 
   return (
     <nav className="bg-gradient-to-r from-slate-900 via-gray-900 to-slate-900 shadow-2xl sticky top-0 z-50 backdrop-blur-md border-b border-slate-700">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto pl-2 pr-4 sm:pl-3 sm:pr-6 lg:pl-4 lg:pr-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
             <Link href="/" className="flex items-center gap-3 hover:scale-105 transition-transform">
               <Image 
                 src="/makati-logo.png" 
                 alt="Makati Philippines" 
-                width={180} 
-                height={60}
+                width={120} 
+                height={50}
                 className="object-contain brightness-0 invert"
                 priority
               />
