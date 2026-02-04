@@ -197,13 +197,13 @@ export default function AdminPage() {
             Quick Actions
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <button className="p-4 bg-slate-700/50 rounded-xl hover:bg-slate-700 transition-colors text-left group">
+            <Link href="/admin/gallery" className="p-4 bg-slate-700/50 rounded-xl hover:bg-slate-700 transition-colors text-left group">
               <svg className="w-8 h-8 text-blue-400 mb-2 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
               </svg>
-              <h3 className="text-white font-semibold">Add Photo</h3>
-              <p className="text-gray-400 text-sm">Upload to gallery</p>
-            </button>
+              <h3 className="text-white font-semibold">Manage Gallery</h3>
+              <p className="text-gray-400 text-sm">Albums & photos</p>
+            </Link>
 
             <button className="p-4 bg-slate-700/50 rounded-xl hover:bg-slate-700 transition-colors text-left group">
               <svg className="w-8 h-8 text-purple-400 mb-2 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
